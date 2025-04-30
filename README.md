@@ -21,3 +21,20 @@ docker compose -f 'docker-compose/postgres.yml' down
 
 ---
 
+### Start the SonarQube
+
+To start the SonarQube
+
+```bash
+docker compose -f 'docker-compose/sonar.yml' up -d --build
+```
+
+To power off the SonarQube
+
+```bash
+docker compose -f 'docker-compose/sonar.yml' down
+```
+
+Local Access (http://localhost:9000/)
+user: admin | passowrd: admin
+
