@@ -22,6 +22,7 @@ docker compose -f 'docker-compose/postgres.yml' down
 ---
 
 ### Start the SonarQube
+<img src="images/sonar_logo.png" alt="Sonar Logo" width="200">
 
 To start the SonarQube
 
