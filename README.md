@@ -6,7 +6,7 @@ Not using in the production
 ---
 
 ### Start the PostgreSQL Service
-<img src="images/postgresql_logo.svg" alt="PostgreSQL Logo" width="200">
+<img src="images/postgresql_logo.png" alt="PostgreSQL Logo" width="200">
 
 To start the PostgreSQL service using the `docker-compose.postgres.yml` file, run the following command:
 
