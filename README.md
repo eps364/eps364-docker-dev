@@ -1,57 +1,61 @@
-# Repository for configuring compose files for using Docker in the development environment
-Not using in the production
+# EPS364 Docker Development Environment
 
-## Docker Compose Commands
+Este repositório contém configurações Docker Compose para ferramentas de desenvolvimento. **NÃO UTILIZAR EM PRODUÇÃO**.
 
----
+## 🚀 Configuração Inicial
 
-### Start the PostgreSQL Service
-<img src="images/postgresql_logo.png" alt="PostgreSQL Logo" width="200">
-
-To start the PostgreSQL service using the `docker-compose.postgres.yml` file, run the following command:
+Primeiro, copie o arquivo de exemplo das variáveis de ambiente para criar o seu próprio:
 
 ```bash
-docker compose -f 'docker/docker-compose-postgres.yml' up -d --build
+cp .env.example .env
 ```
 
-To power off the PostgreSQL service
-```bash
-docker compose -f 'docker/docker-compose-postgres.yml' down
-```
+Personalize as variáveis dentro do arquivo `.env` conforme necessário.
 
----
+## 📁 Estrutura do Projeto
 
-### Start the SonarQube
-<img src="images/sonar_logo.png" alt="Sonar Logo" width="200">
+Este repositório está organizado com serviços independentes, cada um em sua própria pasta:
 
-To start the SonarQube
+| Pasta | Serviço | Descrição | Porta |
+|-------|---------|-----------|-------|
+| `postgres/` | PostgreSQL 17 | Banco de dados relacional | 5432 |
+| `sonar/` | SonarQube Community | Análise de qualidade de código | 9000 |
+| `mailhog/` | MailHog | Interceptador de emails para testes | 8025 (Web UI), 1025 (SMTP) |
+| `portainer/` | Portainer | Interface de gerenciamento Docker | 9443 |
 
-```bash
-docker compose -f 'docker/docker-compose-sonar.yml' up -d --build
-```
+## 🏃‍♂️ Como Usar
 
-To power off the SonarQube
-
-```bash
-docker compose -f 'docker/docker-compose-sonar.yml' down
-```
-
-Local Access (http://localhost:9000/)
-user: admin | passowrd: admin
-
-### Start MailHog
-<img src="images/mailhog_logo.png" alt="Sonar Logo" width="200">
-
-To start the MailHog
+Cada pasta contém seu próprio `README.md` com instruções específicas do serviço. Para executar qualquer serviço:
 
 ```bash
-docker compose -f 'docker/docker-compose-mailhog.yml' up -d --build
+# Padrão geral
+docker compose -f '<pasta>/docker-compose.yml' up -d
 ```
 
-To power off the MailHog
+### Links Rápidos
+- **PostgreSQL**: [postgres/README.md](postgres/README.md)
+- **SonarQube**: [sonar/README.md](sonar/README.md) - http://localhost:9000
+- **MailHog**: [mailhog/README.md](mailhog/README.md) - http://localhost:8025
+- **Portainer**: [portainer/README.md](portainer/README.md) - https://localhost:9443
+
+## 🛠️ Comandos Úteis
 
 ```bash
-docker compose -f 'docker/docker-compose-mailhog.yml' down
+# Ver todos os contêineres em execução
+docker ps
+
+# Ver logs de um contêiner específico
+docker logs <container-name>
+
+# Parar todos os serviços
+docker compose down
+
+# Limpar volumes não utilizados
+docker volume prune
 ```
 
-Local Access (http://localhost:8025)
+## 📋 Pré-requisitos
+
+- Docker
+- Docker Compose
+- Arquivo `.env` configurado (copie de `.env.example`)
