@@ -22,6 +22,7 @@ Este repositório está organizado com serviços independentes, cada um em sua p
 | `sonar/` | SonarQube Community | Análise de qualidade de código | 9000 |
 | `mailhog/` | MailHog | Interceptador de emails para testes | 8025 (Web UI), 1025 (SMTP) |
 | `portainer/` | Portainer | Interface de gerenciamento Docker | 9443 |
+| `keycloak/` | Keycloak | Gerenciamento de identidade e acesso | 8080 |
 
 ## 🏃‍♂️ Como Usar
 
@@ -37,6 +38,7 @@ docker compose -f '<pasta>/docker-compose.yml' up -d
 - **SonarQube**: [sonar/README.md](sonar/README.md) - http://localhost:9000
 - **MailHog**: [mailhog/README.md](mailhog/README.md) - http://localhost:8025
 - **Portainer**: [portainer/README.md](portainer/README.md) - https://localhost:9443
+- **Keycloak**: [keycloak/README.md](keycloak/README.md) - http://localhost:8080
 
 ## 🛠️ Comandos Úteis
 
