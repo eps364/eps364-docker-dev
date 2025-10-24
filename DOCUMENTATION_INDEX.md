@@ -20,8 +20,12 @@ eps364-docker-dev/
 │   └── README.md               # 📧 MailHog
 ├── portainer/
 │   └── README.md               # 🐳 Portainer
-└── sonar/
-    └── README.md               # 📊 SonarQube
+├── sonar/
+│   └── README.md               # 📊 SonarQube
+├── grafana/
+│   └── README.md               # 📈 Grafana
+└── graylog/
+    └── README.md               # 📝 Graylog
 ```
 
 ## 🚀 Links Rápidos
@@ -36,6 +40,8 @@ eps364-docker-dev/
 - [MailHog](mailhog/README.md) - Email testing (portas 8025/1025)
 - [Portainer](portainer/README.md) - Docker UI (porta 9443)
 - [SonarQube](sonar/README.md) - Code quality (porta 9000)
+- [Grafana](grafana/README.md) - Monitoring & Analytics (porta 3002)
+- [Graylog](graylog/README.md) - Log Management (porta 9000)
 
 ### Recursos Visuais
 - [Ícones SVG](images/README.md) - Documentação técnica dos ícones
@@ -49,6 +55,8 @@ eps364-docker-dev/
 - **Comunicação**: MailHog
 - **Gerenciamento**: Portainer
 - **Qualidade**: SonarQube
+- **Monitoramento**: Grafana
+- **Logs**: Graylog
 
 ### Por Nível de Complexidade
 - **Básico**: PostgreSQL, MailHog
