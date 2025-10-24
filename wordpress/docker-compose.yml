@@ -1,0 +1,45 @@
+services:
+  wordpress:
+    image: ${WORDPRESS_IMAGE:-wordpress:6.4-apache}
+    container_name: ${WORDPRESS_CONTAINER_NAME:-wordpress}
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST:-mysql:3306}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      # Optional: hostname for redis cache if using a redis plugin
+      REDIS_HOST: ${REDIS_HOST:-redis}
+    depends_on:
+      - mysql
+      - redis
+    ports:
+      - "${WORDPRESS_PORT:-8000}:80"
+    volumes:
+      - wordpress_data:/var/www/html
+    restart: always
+
+  # A minimal mysql service here for local dev (can be run separately)
+  mysql:
+    image: ${MYSQL_IMAGE:-mysql:8.1}
+    container_name: ${WORDPRESS_MYSQL_CONTAINER_NAME:-wordpress-mysql}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
+      MYSQL_USER: ${MYSQL_DB_USER:-wordpress}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    volumes:
+      - wordpress_mysql_data:/var/lib/mysql
+    restart: always
+
+  redis:
+    image: ${REDIS_IMAGE:-redis:7-alpine}
+    container_name: ${WORDPRESS_REDIS_CONTAINER_NAME:-wordpress-redis}
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - wordpress_redis_data:/data
+    restart: always
+
+volumes:
+  wordpress_data:
+  wordpress_mysql_data:
+  wordpress_redis_data:
