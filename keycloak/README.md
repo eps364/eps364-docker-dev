@@ -1,5 +1,7 @@
 # Keycloak - Identity and Access Management
 
+![Keycloak](../images/keycloak.svg)
+
 Keycloak é uma solução open-source de gerenciamento de identidade e acesso que fornece autenticação, autorização, gerenciamento de usuários e federação de identidades para aplicações modernas.
 
 ## 🚀 Como Usar

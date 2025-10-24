@@ -1,6 +1,6 @@
 # PostgreSQL 17 - Development Database
 
-<img src="../images/postgresql_logo.png" alt="PostgreSQL Logo" width="200">
+![PostgreSQL](../images/postgres.svg)
 
 Este serviço fornece uma instância do PostgreSQL 17 para desenvolvimento local com configuração em português brasileiro.
 

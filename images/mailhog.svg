@@ -1,0 +1,42 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100" height="100" fill="#37474F"/>
+  
+  <!-- Mail envelope -->
+  <g transform="translate(15, 25)">
+    <!-- Envelope body -->
+    <rect x="0" y="10" width="70" height="40" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" rx="3"/>
+    
+    <!-- Envelope flap -->
+    <path d="M0,10 L35,35 L70,10" fill="none" stroke="#FF5722" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Envelope top -->
+    <path d="M0,10 L35,25 L70,10 L70,5 L35,20 L0,5 Z" fill="#FF5722"/>
+  </g>
+  
+  <!-- Hog/Pig icon -->
+  <g transform="translate(60, 15)">
+    <!-- Pig body -->
+    <ellipse cx="15" cy="18" rx="12" ry="8" fill="#FFB6C1"/>
+    
+    <!-- Pig head -->
+    <circle cx="8" cy="12" r="8" fill="#FFB6C1" stroke="#FF69B4" stroke-width="1"/>
+    
+    <!-- Snout -->
+    <ellipse cx="3" cy="12" rx="3" ry="2" fill="#FF69B4"/>
+    <circle cx="2" cy="11" r="0.5" fill="#8B0000"/>
+    <circle cx="2" cy="13" r="0.5" fill="#8B0000"/>
+    
+    <!-- Eye -->
+    <circle cx="8" cy="9" r="1.5" fill="#000000"/>
+    
+    <!-- Ear -->
+    <path d="M12,6 L15,3 L16,8" fill="#FF69B4"/>
+    
+    <!-- Tail -->
+    <path d="M25,15 Q28,12 26,18 Q24,15 25,15" fill="none" stroke="#FF69B4" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Service name -->
+  <text x="50" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">MAILHOG</text>
+</svg>

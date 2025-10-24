@@ -1,5 +1,7 @@
 # MailHog - Email Testing Tool
 
+![MailHog](../images/mailhog.svg)
+
 MailHog é uma ferramenta de desenvolvimento que intercepta emails enviados pela aplicação, permitindo visualizá-los em uma interface web sem efetivamente enviar os emails para destinatários reais.
 
 ## 🚀 Como Usar

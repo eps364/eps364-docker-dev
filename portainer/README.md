@@ -1,5 +1,7 @@
 # Portainer CE - Docker Management Interface
 
+![Portainer](../images/portainer.svg)
+
 Portainer é uma interface de gerenciamento leve que permite gerenciar facilmente ambientes Docker, containers, imagens, volumes e redes através de uma interface web intuitiva.
 
 ## 🚀 Como Usar

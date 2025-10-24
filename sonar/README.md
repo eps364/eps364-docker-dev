@@ -1,6 +1,6 @@
 # SonarQube Community - Code Quality Analysis
 
-<img src="../images/sonar_logo.png" alt="SonarQube Logo" width="200">
+![SonarQube](../images/sonar.svg)
 
 Este serviço fornece uma instância do SonarQube Community Edition para análise de qualidade de código, incluindo um banco PostgreSQL dedicado.
 
