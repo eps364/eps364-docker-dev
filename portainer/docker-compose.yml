@@ -8,7 +8,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
     restart: always
-    command: --ssl --sslcert /data/portainer.crt --sslkey /data/portainer.key
+    #command: --ssl --sslcert /data/portainer.crt --sslkey /data/portainer.key
 
 volumes:
   portainer_data:
