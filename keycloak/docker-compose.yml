@@ -1,6 +1,6 @@
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:26.0
+    image: ${KEYCLOAK_IMAGE:-quay.io/keycloak/keycloak:26.0}
     container_name: keycloak
     environment:
       KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
@@ -9,7 +9,7 @@ services:
       KC_DB_URL: jdbc:postgresql://keycloak-db:5432/${KC_DB_NAME}
       KC_DB_USERNAME: ${KC_DB_USERNAME}
       KC_DB_PASSWORD: ${KC_DB_PASSWORD}
-      KC_HOSTNAME: localhost
+      KC_HOSTNAME: ${KEYCLOAK_HOSTNAME:-localhost}
       KC_HOSTNAME_PORT: ${KEYCLOAK_PORT}
       KC_HOSTNAME_STRICT: false
       KC_HOSTNAME_STRICT_HTTPS: false
@@ -35,14 +35,14 @@ services:
       start_period: 60s
 
   keycloak-db:
-    image: postgres:15
+    image: ${KC_DB_IMAGE:-postgres:15}
     container_name: keycloak-db
     environment:
       POSTGRES_DB: ${KC_DB_NAME}
       POSTGRES_USER: ${KC_DB_USERNAME}
       POSTGRES_PASSWORD: ${KC_DB_PASSWORD}
     ports:
-      - "${KC_DB_EXTERNAL_PORT}:5432"
+      - "${KC_DB_EXTERNAL_PORT:-5432}:5432"
     volumes:
       - keycloak_db_data:/var/lib/postgresql/data
     restart: always

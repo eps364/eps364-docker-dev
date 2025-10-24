@@ -1,9 +1,9 @@
 services:
   portainer:
-    image: portainer/portainer-ce:latest
-    container_name: portainer
+    image: ${PORTAINER_IMAGE:-portainer/portainer-ce:latest}
+    container_name: ${PORTAINER_NAME:-portainer}
     ports:
-      - "9443:9443"
+      - "${PORTAINER_PORT:-9443}:9443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
