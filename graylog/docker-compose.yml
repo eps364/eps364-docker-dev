@@ -1,0 +1,54 @@
+services:
+  # MongoDB for Graylog metadata
+  mongodb:
+    image: ${MONGODB_IMAGE:-mongo:6.0}
+    container_name: ${GRAYLOG_MONGODB_CONTAINER_NAME:-graylog-mongodb}
+    volumes:
+      - graylog_mongodb_data:/data/db
+    restart: always
+
+  # Elasticsearch for log storage
+  elasticsearch:
+    image: ${ELASTICSEARCH_IMAGE:-docker.elastic.co/elasticsearch/elasticsearch:7.17.16}
+    container_name: ${GRAYLOG_ELASTICSEARCH_CONTAINER_NAME:-graylog-elasticsearch}
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - graylog_elasticsearch_data:/usr/share/elasticsearch/data
+    restart: always
+
+  # Graylog server
+  graylog:
+    image: ${GRAYLOG_IMAGE:-graylog/graylog:5.2}
+    container_name: ${GRAYLOG_CONTAINER_NAME:-graylog}
+    depends_on:
+      - mongodb
+      - elasticsearch
+    ports:
+      # Graylog web interface and REST API
+      - "${GRAYLOG_HTTP_PORT:-9000}:9000"
+      # Syslog TCP
+      - "${GRAYLOG_SYSLOG_TCP_PORT:-1514}:1514"
+      # Syslog UDP
+      - "${GRAYLOG_SYSLOG_UDP_PORT:-1514}:1514/udp"
+      # GELF TCP
+      - "${GRAYLOG_GELF_TCP_PORT:-12201}:12201"
+      # GELF UDP
+      - "${GRAYLOG_GELF_UDP_PORT:-12201}:12201/udp"
+    environment:
+      # CHANGE THESE IN PRODUCTION!
+      - GRAYLOG_PASSWORD_SECRET=${GRAYLOG_PASSWORD_SECRET}
+      - GRAYLOG_ROOT_PASSWORD_SHA2=${GRAYLOG_ROOT_PASSWORD_SHA2}
+      - GRAYLOG_HTTP_EXTERNAL_URI=${GRAYLOG_HTTP_EXTERNAL_URI:-http://localhost:9000/}
+      - GRAYLOG_MONGODB_URI=mongodb://mongodb:27017/graylog
+      - GRAYLOG_ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    volumes:
+      - graylog_data:/usr/share/graylog/data
+    restart: always
+
+volumes:
+  graylog_mongodb_data:
+  graylog_elasticsearch_data:
+  graylog_data:
