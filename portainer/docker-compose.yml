@@ -8,7 +8,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
     restart: always
-    #command: --ssl --sslcert /data/portainer.crt --sslkey /data/portainer.key
+    environment:
+      - TZ=${TZ:-UTC}
+    # Senha padrão: senha123 (ou use PORTAINER_ADMIN_PASSWORD_HASH no .env)
+    command: --admin-password '$$2y$$05$$KE35iXKbsfGtvidlUu16fO1Amw8ImGTSDAiGuDRqyTQDDNuCFNzAW'
 
 volumes:
   portainer_data:

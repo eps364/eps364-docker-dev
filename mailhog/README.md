@@ -182,6 +182,13 @@ MailHog fornece uma API REST completa:
     - "1026:1025"  # SMTP na porta 1026
   ```
 
+### No Windows
+
+Adicionar a seguinte Variavel de ambiente de sistema:
+
+> MH_SMTP_BIND_ADDR com o valor 0.0.0.0:25
+
+
 ### Performance
 - MailHog armazena emails em memória - reiniciar o container limpa todos os emails
 - Para grandes volumes, considere usar outros interceptadores de email

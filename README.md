@@ -23,6 +23,7 @@ Este repositório está organizado com serviços independentes, cada um em sua p
 | ![MailHog](images/mailhog.svg) | `mailhog/` | MailHog | Interceptador de emails para testes | 8025 (Web UI), 1025 (SMTP) |
 | ![Portainer](images/portainer.svg) | `portainer/` | Portainer | Interface de gerenciamento Docker | 9443 |
 | ![Keycloak](images/keycloak.svg) | `keycloak/` | Keycloak | Gerenciamento de identidade e acesso | 8080 |
+| !LocalStack | `localStack/` | LocalStack | Simulador de nuvem AWS local | 4566 |
 
 ## 🏃‍♂️ Como Usar
 
@@ -39,6 +40,7 @@ docker compose -f '<pasta>/docker-compose.yml' up -d
 - **MailHog**: [mailhog/README.md](mailhog/README.md) - http://localhost:8025
 - **Portainer**: [portainer/README.md](portainer/README.md) - https://localhost:9443
 - **Keycloak**: [keycloak/README.md](keycloak/README.md) - http://localhost:8080
+- **LocalStack**: localStack/README.md - Endpoint: http://localhost:4566
 
 ## 🛠️ Comandos Úteis
 
@@ -64,6 +66,7 @@ Cada serviço possui um ícone SVG personalizado localizado na pasta `images/`:
 - **MailHog**: Envelope com porco estilizado  
 - **Portainer**: Stack de containers com guindaste
 - **PostgreSQL**: Elefante com banco de dados
+- **LocalStack**: Cubo 3D representando uma "nuvem local"
 - **SonarQube**: Ondas sonoras com análise de código
 
 Para mais detalhes sobre os ícones, consulte: [images/README.md](images/README.md)

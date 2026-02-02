@@ -29,6 +29,11 @@ Esta pasta contém ícones SVG para cada serviço disponível neste ambiente Doc
 - **Elementos**: Ondas sonoras, lupa e indicadores de qualidade de código
 - **Cores**: Azul SonarQube (#4E9BCD) com indicadores coloridos
 
+### ☁️ LocalStack (`localstack.svg`)
+- **Descrição**: Ícone para o simulador de nuvem AWS LocalStack
+- **Elementos**: Cubo 3D estilizado para representar uma "nuvem local"
+- **Cores**: Fundo escuro (#2E3D4F) com contorno laranja AWS (#FF9900)
+
 ## Características Técnicas
 
 - **Formato**: SVG (Scalable Vector Graphics)

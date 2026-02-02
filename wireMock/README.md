@@ -11,11 +11,14 @@ WireMock é uma biblioteca/simulador para APIs HTTP. Ele pode ser usado para tes
 A configuração está definida no arquivo `docker-compose.yml`:
 
 - **Imagem**: `wiremock/wiremock:latest` (imagem oficial do WireMock)
-- **Porta**: Exposição da porta 8080 do container na porta 8000 do host
+- **Portas**:
+  - HTTP: Porta 8080 do container exposta na porta 8000 do host
+  - HTTPS: Porta 8443 do container exposta na porta 8443 do host (usa certificado auto-assinado)
 - **Volumes**:
   - `./wiremock/__files` mapeado para `/home/wiremock/__files` (para arquivos de resposta)
   - `./wiremock/mappings` mapeado para `/home/wiremock/mappings` (para definições de mapeamentos)
-- **Comando**: `--verbose` para logging detalhado
+  - `./wiremock/extensions` mapeado para `/home/wiremock/extensions` (para extensões personalizadas)
+- **Opções**: `--https-port 8443 --verbose` para habilitar HTTPS na porta 8443 e logging detalhado
 
 ## Como usar
 
@@ -26,7 +29,9 @@ A configuração está definida no arquivo `docker-compose.yml`:
    docker compose up -d
    ```
 
-3. O WireMock estará disponível em `http://localhost:8000`.
+3. O WireMock estará disponível em:
+   - **HTTP**: `http://localhost:8000`
+   - **HTTPS**: `https://localhost:8443` (aceite o certificado auto-assinado no navegador)
 
 4. Para parar:
    ```bash
@@ -55,10 +60,13 @@ Para adicionar mapeamentos personalizados, coloque arquivos JSON na pasta `wirem
 
 ## Verificação
 
-Para verificar se está funcionando, acesse `http://localhost:8000/__admin/` para o painel de administração do WireMock.
+Para verificar se está funcionando, acesse o painel de administração do WireMock:
+- **HTTP**: `http://localhost:8000/__admin/`
+- **HTTPS**: `https://localhost:8443/__admin/` (aceite o certificado auto-assinado)
 
 ## Notas
 
 - A configuração usa a versão mais recente do WireMock. Para uma versão específica, altere `latest` para uma tag como `3.0.1`.
-- Os diretórios `wiremock/__files` e `wiremock/mappings` foram criados para persistir configurações.</content>
+- Os diretórios `wiremock/__files`, `wiremock/mappings` e `wiremock/extensions` foram criados para persistir configurações.
+- O HTTPS usa um certificado auto-assinado gerado automaticamente pelo WireMock. Em produção ou testes reais, considere fornecer seu próprio keystore via volume ou variável de ambiente.</content>
 <parameter name="filePath">/home/emerson/projetos/eps364-docker-dev/wireMock/README.md

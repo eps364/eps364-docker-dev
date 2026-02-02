@@ -3,8 +3,18 @@ services:
     image: wiremock/wiremock:latest
     container_name: wiremock
     ports:
-      - "8000:8080"
+      - "80:8080"   # HTTP
+      - "443:8443"   # HTTPS
+    environment:
+      - JAVA_OPTS=-Xmx512m
+      - WIREMOCK_OPTIONS=--https-port 8443 --verbose
     volumes:
       - ./wiremock/__files:/home/wiremock/__files
       - ./wiremock/mappings:/home/wiremock/mappings
-    command: ["--verbose"]
+      - ./wiremock/extensions:/home/wiremock/extensions
+    networks:
+      - mock-network
+
+networks:
+  mock-network:
+    driver: bridge

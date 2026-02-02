@@ -1,0 +1,17 @@
+services:
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+    environment:
+      # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
+      - DEBUG=${DEBUG:-0}
+      # Especifique os serviços para otimizar o uso de recursos. Ex: s3,dynamodb,lambda
+      - SERVICES=${LOCALSTACK_SERVICES:-s3,sqs,lambda}
+      # Adicione sua API Key (recurso pago) para habilitar a interface web e outros recursos Pro
+      - LOCALSTACK_API_KEY=${LOCALSTACK_API_KEY:-}
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"

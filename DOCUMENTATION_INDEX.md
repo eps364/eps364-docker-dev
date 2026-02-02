@@ -24,6 +24,8 @@ eps364-docker-dev/
 │   └── README.md               # 📊 SonarQube
 ├── grafana/
 │   └── README.md               # 📈 Grafana
+├── localStack/
+│   └── README.md               # ☁️ LocalStack
 └── graylog/
     └── README.md               # 📝 Graylog
 ```

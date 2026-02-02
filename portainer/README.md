@@ -147,7 +147,7 @@ docker run --rm -v portainer_portainer_data:/data -v $(pwd):/backup alpine tar x
 ### Esqueceu a senha
 ```bash
 # Resetar senha do admin
-docker exec -it portainer /portainer --admin-password='novaSenha123'
+docker exec -it portainer /portainer --admin-password='senha123senha123'
 ```
 
 ## 📋 Limitações da Versão CE
