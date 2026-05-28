@@ -24,6 +24,7 @@ Este repositório está organizado com serviços independentes, cada um em sua p
 | ![Portainer](images/portainer.svg) | `portainer/` | Portainer | Interface de gerenciamento Docker | 9443 |
 | ![Keycloak](images/keycloak.svg) | `keycloak/` | Keycloak | Gerenciamento de identidade e acesso | 8080 |
 | !LocalStack | `localStack/` | LocalStack | Simulador de nuvem AWS local | 4566 |
+| Mockoon | `mockoon/` | Mockoon CLI | Mock de APIs HTTP para testes locais | 3000 |
 
 ## 🏃‍♂️ Como Usar
 
@@ -41,6 +42,7 @@ docker compose -f '<pasta>/docker-compose.yml' up -d
 - **Portainer**: [portainer/README.md](portainer/README.md) - https://localhost:9443
 - **Keycloak**: [keycloak/README.md](keycloak/README.md) - http://localhost:8080
 - **LocalStack**: localStack/README.md - Endpoint: http://localhost:4566
+- **Mockoon**: [mockoon/README.md](mockoon/README.md) - http://localhost:3000
 
 ## 🛠️ Comandos Úteis
 

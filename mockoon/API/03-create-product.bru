@@ -1,0 +1,25 @@
+meta {
+  name: Create Product
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/products
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "id": 10,
+    "name": "Headset Gamer",
+    "price": 299.9,
+    "stock": 20,
+    "active": true
+  }
+}

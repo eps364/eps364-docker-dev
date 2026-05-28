@@ -26,8 +26,10 @@ eps364-docker-dev/
 │   └── README.md               # 📈 Grafana
 ├── localStack/
 │   └── README.md               # ☁️ LocalStack
-└── graylog/
-    └── README.md               # 📝 Graylog
+├── graylog/
+│   └── README.md               # 📝 Graylog
+└── mockoon/
+    └── README.md               # 🎭 Mockoon
 ```
 
 ## 🚀 Links Rápidos
@@ -44,6 +46,7 @@ eps364-docker-dev/
 - [SonarQube](sonar/README.md) - Code quality (porta 9000)
 - [Grafana](grafana/README.md) - Monitoring & Analytics (porta 3002)
 - [Graylog](graylog/README.md) - Log Management (porta 9000)
+- [Mockoon](mockoon/README.md) - API mock server (porta 3000)
 
 ### Recursos Visuais
 - [Ícones SVG](images/README.md) - Documentação técnica dos ícones
@@ -59,14 +62,15 @@ eps364-docker-dev/
 - **Qualidade**: SonarQube
 - **Monitoramento**: Grafana
 - **Logs**: Graylog
+- **Mocks**: Mockoon
 
 ### Por Nível de Complexidade
 - **Básico**: PostgreSQL, MailHog
-- **Intermediário**: Portainer, SonarQube  
+- **Intermediário**: Portainer, SonarQube, Mockoon  
 - **Avançado**: Keycloak
 
 ### Por Dependências
-- **Independentes**: MailHog, Portainer
+- **Independentes**: MailHog, Portainer, Mockoon
 - **Com PostgreSQL**: SonarQube, Keycloak
 - **Standalone**: PostgreSQL
 

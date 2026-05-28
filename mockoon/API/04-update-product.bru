@@ -1,0 +1,24 @@
+meta {
+  name: Update Product
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8080/products/1
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Notebook Pro 14 - Atualizado",
+    "price": 4399.9,
+    "stock": 6,
+    "active": true
+  }
+}

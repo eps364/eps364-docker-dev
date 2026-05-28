@@ -1,0 +1,18 @@
+services:
+  mockoon:
+    image: ${MOCKOON_IMAGE:-mockoon/cli:latest}
+    container_name: ${MOCKOON_NAME:-mockoon}
+    command:
+      - --data
+      - /data/mockoon-data.json
+      - --repair
+      - --port
+      - "8080"
+      - --hostname
+      - 0.0.0.0
+      - --log-transaction
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

@@ -1,0 +1,233 @@
+{
+    "uuid": "8bd6d4f1-6f95-4d4d-905e-7290f5acfd87",
+    "lastMigration": 33,
+    "name": "Mockoon API",
+    "endpointPrefix": "",
+    "latency": 0,
+    "port": 8080,
+    "hostname": "0.0.0.0",
+    "folders": [],
+    "routes": [
+      {
+        "uuid": "3db14a31-3156-4f2d-9ee6-8b94fbbcb091",
+        "type": "http",
+        "documentation": "Lista produtos para testes",
+        "method": "get",
+        "endpoint": "products",
+        "responses": [
+          {
+            "uuid": "2c37f07e-0f67-4018-9d2b-67024af4a2de",
+            "body": "{\n  \"products\": [\n    {\n      \"id\": 1,\n      \"name\": \"Notebook Pro 14\",\n      \"price\": 4599.9,\n      \"stock\": 8,\n      \"active\": true\n    },\n    {\n      \"id\": 2,\n      \"name\": \"Mouse Sem Fio\",\n      \"price\": 129.9,\n      \"stock\": 42,\n      \"active\": true\n    },\n    {\n      \"id\": 3,\n      \"name\": \"Teclado Mecanico\",\n      \"price\": 349.9,\n      \"stock\": 17,\n      \"active\": true\n    }\n  ],\n  \"total\": 3\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true,
+            "crudKey": "",
+            "callbacks": []
+          }
+        ],
+        "responseMode": null,
+        "streamingMode": null,
+        "streamingInterval": 0
+      },
+      {
+        "uuid": "882d8801-df55-4836-8a57-bf5d3a8a4a44",
+        "type": "http",
+        "documentation": "Busca produto por id",
+        "method": "get",
+        "endpoint": "products/:id",
+        "responses": [
+          {
+            "uuid": "21b12a2e-7f8f-4319-8f55-859e8c733913",
+            "body": "{\n  \"id\": {{urlParam 'id'}},\n  \"name\": \"Produto {{urlParam 'id'}}\",\n  \"price\": 99.9,\n  \"stock\": 10,\n  \"active\": true\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true,
+            "crudKey": "",
+            "callbacks": []
+          }
+        ],
+        "responseMode": null,
+        "streamingMode": null,
+        "streamingInterval": 0
+      },
+      {
+        "uuid": "53f3095d-066b-4fc4-bf32-7883f3650311",
+        "type": "http",
+        "documentation": "Cria produto",
+        "method": "post",
+        "endpoint": "products",
+        "responses": [
+          {
+            "uuid": "f66d43d8-d029-4655-a910-8ba6f96db839",
+            "body": "{\n  \"id\": {{body 'id'}},\n  \"name\": \"{{body 'name'}}\",\n  \"price\": {{body 'price'}},\n  \"stock\": {{body 'stock'}},\n  \"active\": {{body 'active'}}\n}",
+            "latency": 0,
+            "statusCode": 201,
+            "label": "",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true,
+            "crudKey": "",
+            "callbacks": []
+          }
+        ],
+        "responseMode": null,
+        "streamingMode": null,
+        "streamingInterval": 0
+      },
+      {
+        "uuid": "18e2ac43-f22f-42e5-8d26-4fb9ff71f5b5",
+        "type": "http",
+        "documentation": "Atualiza produto",
+        "method": "put",
+        "endpoint": "products/:id",
+        "responses": [
+          {
+            "uuid": "11a505e8-4ac5-4c20-bf2b-f8724847f009",
+            "body": "{\n  \"id\": {{urlParam 'id'}},\n  \"name\": \"{{body 'name'}}\",\n  \"price\": {{body 'price'}},\n  \"stock\": {{body 'stock'}},\n  \"active\": {{body 'active'}}\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true,
+            "crudKey": "",
+            "callbacks": []
+          }
+        ],
+        "responseMode": null,
+        "streamingMode": null,
+        "streamingInterval": 0
+      },
+      {
+        "uuid": "2ee67b77-2b8f-4e3f-89ef-f70b7dc08cef",
+        "type": "http",
+        "documentation": "Remove produto",
+        "method": "delete",
+        "endpoint": "products/:id",
+        "responses": [
+          {
+            "uuid": "1fa73ac6-7cd2-456a-abce-b70f713635da",
+            "body": "{\n  \"message\": \"Produto {{urlParam 'id'}} removido com sucesso\"\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true,
+            "crudKey": "",
+            "callbacks": []
+          }
+        ],
+        "responseMode": null,
+        "streamingMode": null,
+        "streamingInterval": 0
+      }
+    ],
+    "rootChildren": [
+      {
+        "type": "route",
+        "uuid": "3db14a31-3156-4f2d-9ee6-8b94fbbcb091"
+      },
+      {
+        "type": "route",
+        "uuid": "882d8801-df55-4836-8a57-bf5d3a8a4a44"
+      },
+      {
+        "type": "route",
+        "uuid": "53f3095d-066b-4fc4-bf32-7883f3650311"
+      },
+      {
+        "type": "route",
+        "uuid": "18e2ac43-f22f-42e5-8d26-4fb9ff71f5b5"
+      },
+      {
+        "type": "route",
+        "uuid": "2ee67b77-2b8f-4e3f-89ef-f70b7dc08cef"
+      }
+    ],
+    "proxyMode": false,
+    "proxyHost": "",
+    "proxyRemovePrefix": false,
+    "tlsOptions": {
+      "enabled": false,
+      "type": "CERT",
+      "pfxPath": "",
+      "certPath": "",
+      "keyPath": "",
+      "caPath": "",
+      "passphrase": ""
+    },
+    "https": false,
+    "cors": true,
+    "headers": [],
+    "proxyReqHeaders": [],
+    "proxyResHeaders": [],
+    "data": [],
+    "callbacks": []
+}
